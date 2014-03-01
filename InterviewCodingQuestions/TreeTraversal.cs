@@ -67,17 +67,17 @@ namespace InterviewCodingQuestions
             InOrderDepthFirstTraverse(tree.Root);
             Console.WriteLine("====================");
 
-            ////PreOrderDepthFirstTraverse(tree.Root);
-            ////Console.WriteLine("====================");
+            PreOrderDepthFirstTraverse(tree.Root);
+            Console.WriteLine("====================");
 
-            ////PostOrderDepthFirstTraverse(tree.Root);
-            ////Console.WriteLine("====================");
+            PostOrderDepthFirstTraverse(tree.Root);
+            Console.WriteLine("====================");
 
-            ////BreadthFirstTraverse(tree.Root);
-            ////Console.WriteLine("====================");
+            BreadthFirstTraverse(tree.Root);
+            Console.WriteLine("====================");
 
-            ////FindParentInBinarySearchTree();
-            ////Console.WriteLine("====================");
+            FindParentInBinarySearchTree();
+            Console.WriteLine("====================");
 
             FindNodeInTree();
             Console.WriteLine("====================");
@@ -90,7 +90,7 @@ namespace InterviewCodingQuestions
         {
             var tree = CreateTree();
 
-            var node = FindNodeInTree(tree, 77);
+            var node = FindNodeInTree(tree, 7);
 
             Console.WriteLine(node == null ? "Node not found" : "Found node with data " + node.Data);
         }
@@ -110,11 +110,11 @@ namespace InterviewCodingQuestions
                 int compareResult = data.CompareTo(currentNode.Data);
 
                 if (compareResult == 0)
-                    return currentNode;
+                    return currentNode; // found node
                 else if (compareResult < 0)
-                    currentNode = currentNode.Left;
+                    currentNode = currentNode.Left; // go down left subtree
                 else
-                    currentNode = currentNode.Right;
+                    currentNode = currentNode.Right; // go down right subtree
             }
 
             return null; // not found.
@@ -130,7 +130,10 @@ namespace InterviewCodingQuestions
             try
             {
                 var parentNode = FindParent(tree.Root, new Node<int>(1));
-                Console.WriteLine(parentNode == null ? "Specified node is root node." : "Parent node = " + parentNode.Data.ToString());
+                Console.WriteLine(
+                    parentNode == null ? 
+                    "Specified node is root node." : 
+                    "Parent node = " + parentNode.Data.ToString());
             }
             catch(InvalidOperationException ex)
             {
