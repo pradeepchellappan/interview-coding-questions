@@ -53,32 +53,42 @@ namespace InterviewCodingQuestions
     }
 
     /// <summary>
-    /// Contains methods to traverse the tree in different ways.
+    /// Contains tree related questions.
     /// </summary>
-    class TreeTraversal
+    class Tree
     {
         /// <summary>
-        /// 
+        /// Calls the different tree
         /// </summary>
-        public void TraverseTree()
+        public void TreeQuestions()
         {
             var tree = CreateTree();
-            
+
+            Console.WriteLine("=========In-order DFS===========");
             InOrderDepthFirstTraverse(tree.Root);
             Console.WriteLine("====================");
 
+            Console.WriteLine("=========Pre-order DFS===========");
             PreOrderDepthFirstTraverse(tree.Root);
             Console.WriteLine("====================");
 
+            Console.WriteLine("=========Post-order DFS===========");
             PostOrderDepthFirstTraverse(tree.Root);
             Console.WriteLine("====================");
 
+            Console.WriteLine("=========Non recursive DFS===========");
+            NonRecursiveDepthFirstTraverse(tree.Root);
+            Console.WriteLine("====================");
+
+            Console.WriteLine("=========BFS===========");
             BreadthFirstTraverse(tree.Root);
             Console.WriteLine("====================");
 
+            Console.WriteLine("=========Find parent===========");
             FindParentInBinarySearchTree();
             Console.WriteLine("====================");
 
+            Console.WriteLine("=========Find node===========");
             FindNodeInTree();
             Console.WriteLine("====================");
         }
@@ -242,6 +252,25 @@ namespace InterviewCodingQuestions
             PostOrderDepthFirstTraverse(node.Left);
             PostOrderDepthFirstTraverse(node.Right);
             Console.WriteLine(node.Data);
+        }
+
+        private void NonRecursiveDepthFirstTraverse<T>(Node<T> rootNode)
+        {
+            Stack<Node<T>> stack = new Stack<Node<T>>();
+            stack.Push(rootNode);
+
+            while(stack.Count != 0)
+            {
+                var node = stack.Pop();
+
+                if (node.Right != null)
+                    stack.Push(node.Right);
+
+                if (node.Left != null)
+                    stack.Push(node.Left);
+
+                Console.WriteLine(node.Data);
+            }
         }
 
         /// <summary>
