@@ -55,12 +55,12 @@ namespace InterviewCodingQuestions
     /// <summary>
     /// Contains tree related questions.
     /// </summary>
-    class Tree
+    class TreeAlgorithms
     {
         /// <summary>
-        /// Calls the different tree
+        /// Invokes the different tree algorithms.
         /// </summary>
-        public void TreeQuestions()
+        public void Execute()
         {
             var tree = CreateTree();
 
@@ -254,8 +254,14 @@ namespace InterviewCodingQuestions
             Console.WriteLine(node.Data);
         }
 
+        /// <summary>
+        /// Implements a non-recursive depth first traversal.
+        /// </summary>
+        /// <typeparam name="T">The type of the data stored in the tree nodes.</typeparam>
+        /// <param name="rootNode">The root node of the tree.</param>
         private void NonRecursiveDepthFirstTraverse<T>(Node<T> rootNode)
         {
+            // Instead of using the implicit call stack, we use our own stack.
             Stack<Node<T>> stack = new Stack<Node<T>>();
             stack.Push(rootNode);
 

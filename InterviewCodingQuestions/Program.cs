@@ -10,8 +10,8 @@ namespace InterviewCodingQuestions
     {
         static void Main(string[] args)
         {
-            Tree treeTraversal = new Tree();
-            treeTraversal.TreeQuestions();
+            TreeAlgorithms treeTraversal = new TreeAlgorithms();
+            treeTraversal.Execute();
             Console.ReadKey();
         }
     }
